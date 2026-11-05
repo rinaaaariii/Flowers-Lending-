@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Салон цветов Anna в Якутске. Розы от 120 ₽, букеты пионов, цветы в коробках, клубничные букеты. Круглосуточно в ТК Дельта.">
+    <meta name="keywords" content="цветы Якутск, доставка цветов, букеты роз, салон цветов Anna, цветы круглосуточно">
+
+    <meta property="og:title" content="Anna — Салон цветов в Якутске | Каталог и доставка 24/7">
+    <meta property="og:description" content="Свежие розы, пионы, цветы в коробках и клубничные букеты. Филиал в ТК Дельта работает круглосуточно.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/flowers/hero-bouquet.jpg">
+
+    <title>Anna — Салон цветов в Якутске | Свежие букеты и доставка 24/7</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="preload" as="image" href="images/flowers/hero-bouquet.jpg">
+
+    <style>
+        :root {
+            --primary: #BE185D;
+            --primary-hover: #9D174D;
+            --primary-light: #FDF2F8;
+            --text-dark: #111827;
+            --text-body: #4B5563;
+            --text-light: #6B7280;
+            --white: #FFFFFF;
+            --bg-light: #FAFAFA;
+            --border: #E5E7EB;
+            --error: #DC2626;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-body);
+            line-height: 1.6;
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; height: auto; display: block; }
+        button { font-family: inherit; }
+
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(190, 24, 93, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover { background: var(--white); color: var(--primary); }
+
+        .btn-ghost { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-ghost:hover { background: var(--primary); color: var(--white); }
+
+        .btn-sm { padding: 10px 20px; font-size: 0.9rem; }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+        .section { padding: 80px 0; }
+        .section-title { font-size: 2.25rem; font-weight: 700; text-align: center; margin-bottom: 16px; }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin: 0 auto 40px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .header-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; gap: 20px; }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+
+        .logo span { color: var(--text-dark); font-weight: 600; }
+
+        .nav { display: flex; align-items: center; gap: 28px; }
+        .nav-link { font-weight: 500; color: var(--text-dark); position: relative; }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .header-phone { font-weight: 600; color: var(--text-dark); white-space: nowrap; }
+        .header-phone:hover { color: var(--primary); }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px; height: 2px;
+            margin: 6px 0;
+            background: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+            color: var(--white);
+            overflow: hidden;
+            background: #3b2230;
+        }
+
+        .hero-image {
+            position: absolute;
+            inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(17, 24, 39, 0.78) 0%, rgba(190, 24, 93, 0.35) 100%);
+            z-index: 1;
+        }
+
+        .hero .container { position: relative; z-index: 2; }
+        .hero-content { max-width: 720px; animation: fadeInUp 0.8s ease-out; }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            margin-bottom: 24px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 50px;
+        }
+
+        .hero h1 { font-size: 3.4rem; font-weight: 800; color: var(--white); margin-bottom: 24px; line-height: 1.12; }
+        .hero p { font-size: 1.2rem; margin-bottom: 32px; max-width: 600px; opacity: 0.95; }
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+        .catalog-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 24px;
+            margin-bottom: 32px;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        .catalog-search { position: relative; width: 100%; }
+
+        .catalog-search input {
+            width: 100%;
+            padding: 14px 16px 14px 46px;
+            font-size: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .catalog-search input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.1);
+        }
+
+        .catalog-search::before {
+            content: '';
+            position: absolute;
+            left: 18px; top: 50%;
+            width: 14px; height: 14px;
+            transform: translateY(-60%);
+            border: 2px solid var(--text-light);
+            border-radius: 50%;
+        }
+
+        .catalog-search::after {
+            content: '';
+            position: absolute;
+            left: 31px; top: 58%;
+            width: 7px; height: 2px;
+            background: var(--text-light);
+            transform: rotate(45deg);
+        }
+
+        .catalog-filters { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; }
+        .filter-group { display: flex; flex-wrap: wrap; gap: 8px; }
+
+        .filter-btn {
+            padding: 9px 16px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-body);
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .filter-btn.active { background: var(--primary); border-color: var(--primary); color: var(--white); }
+
+        .sort-select {
+            padding: 10px 14px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .catalog-counter { margin-bottom: 24px; font-size: 0.9rem; color: var(--text-light); }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+        .product-image-wrapper {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: var(--bg-light);
+        }
+
+        .product-image { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image { transform: scale(1.04); }
+
+        .product-badge {
+            position: absolute;
+            top: 16px; left: 16px;
+            z-index: 2;
+            padding: 6px 12px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--white);
+            background: var(--primary);
+            border-radius: 50px;
+        }
+
+        .product-image-fallback {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+            color: var(--text-light);
+        }
+
+        .product-image-fallback svg {
+            width: 64px;
+            height: 64px;
+            opacity: 0.4;
+        }
+
+        .product-image-fallback strong { 
+            color: var(--text-dark); 
+            font-size: 1rem;
+            margin-top: 8px;
+        }
+
+        .product-image-fallback span { 
+            font-size: 0.85rem;
+            max-width: 200px;
+        }
+
+        [hidden] { display: none !important; }
+
+        .product-info { display: flex; flex-direction: column; flex: 1; padding: 24px; }
+        .product-category { margin-bottom: 8px; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; color: var(--primary); }
+        .product-info h3 { font-size: 1.2rem; margin-bottom: 12px; }
+        .product-info p { flex: 1; margin-bottom: 20px; font-size: 0.94rem; color: var(--text-light); }
+
+        .product-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; }
+        .product-price { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--text-dark); }
+
+        .empty-state { grid-column: 1 / -1; padding: 60px 20px; text-align: center; color: var(--text-light); }
+
+        .reviews-controls { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+
+        .review-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 28px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .review-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .review-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+        .review-stars { color: #F59E0B; font-size: 1.05rem; letter-spacing: 2px; }
+        .review-source { padding: 4px 8px; font-size: 0.72rem; font-weight: 600; color: var(--text-light); background: var(--bg-light); border-radius: 4px; }
+        .review-text { flex: 1; margin-bottom: 24px; color: var(--text-dark); font-size: 1rem; overflow-wrap: anywhere; }
+
+        .review-author { display: flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--border); }
+
+        .review-avatar {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px; height: 44px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+            background: var(--primary-light);
+            border-radius: 50%;
+        }
+
+        .review-name { font-weight: 600; color: var(--text-dark); font-size: 0.95rem; }
+        .review-date { font-size: 0.8rem; color: var(--text-light); }
+        .reviews-load-more { margin-top: 36px; text-align: center; }
+        .reviews-counter { margin-top: 16px; text-align: center; font-size: 0.9rem; color: var(--text-light); }
+
+        .about { background: var(--primary-light); }
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+
+        .about-image { 
+            aspect-ratio: 4 / 3; 
+            overflow: hidden; 
+            border-radius: var(--radius); 
+            box-shadow: var(--shadow-lg);
+            background: var(--bg-light);
+        }
+
+        .about-image img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
+        }
+
+        .about-text h2 { font-size: 2.2rem; margin-bottom: 20px; }
+        .about-text p { margin-bottom: 16px; font-size: 1.02rem; }
+
+        .about-features { list-style: none; margin-top: 24px; }
+        .about-features li { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-weight: 500; color: var(--text-dark); }
+
+        .about-features li::before {
+            content: '✓';
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px; height: 24px;
+            font-size: 0.75rem;
+            color: var(--white);
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .contact { background: var(--bg-light); }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-info { padding: 48px; background: var(--text-dark); color: var(--white); }
+        .contact-info h3 { margin-bottom: 28px; font-size: 1.7rem; color: var(--white); }
+        .contact-block { margin-bottom: 28px; }
+
+        .contact-block h4 {
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #F9A8D4;
+        }
+
+        .contact-block p, .contact-block a { display: block; margin-bottom: 8px; color: rgba(255, 255, 255, 0.82); }
+        .contact-block a:hover { color: var(--white); text-decoration: underline; }
+
+        .contact-form-wrapper { padding: 48px; background: var(--white); }
+        .contact-form-wrapper h3 { margin-bottom: 8px; font-size: 1.7rem; }
+        .contact-form-wrapper > p { margin-bottom: 28px; color: var(--text-light); }
+
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; margin-bottom: 8px; font-size: 0.94rem; font-weight: 500; color: var(--text-dark); }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.1);
+        }
+
+        .form-input[aria-invalid="true"] { border-color: var(--error); }
+        .form-textarea { min-height: 120px; resize: vertical; }
+
+        .form-checkbox { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; font-size: 0.86rem; color: var(--text-light); }
+        .form-checkbox input { flex-shrink: 0; width: 16px; height: 16px; margin-top: 4px; accent-color: var(--primary); }
+
+        .form-error { display: none; margin-top: 6px; font-size: 0.85rem; color: var(--error); }
+
+        .consent-text {
+            font-size: 0.86rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .consent-text a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .consent-text a:hover {
+            color: var(--primary-hover);
+        }
+
+        .footer { padding: 48px 0 24px; font-size: 0.94rem; color: rgba(255, 255, 255, 0.65); background: var(--text-dark); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 36px; }
+        .footer h4 { margin-bottom: 20px; font-size: 1.1rem; color: var(--white); }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a:hover { color: var(--white); }
+        .footer-bottom { padding-top: 24px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        @media (max-width: 968px) {
+            .hero h1 { font-size: 2.6rem; }
+            .about-content, .contact-wrapper { grid-template-columns: 1fr; }
+            .contact-info, .contact-form-wrapper { padding: 36px 28px; }
+        }
+
+        @media (max-width: 768px) {
+            .header-phone { display: none; }
+            .mobile-menu-btn { display: block; }
+
+            .nav {
+                position: fixed;
+                top: 80px; left: 0; right: 0;
+                z-index: 999;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 22px;
+                padding: 28px 24px;
+                background: var(--white);
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-160%);
+                transition: var(--transition);
+            }
+
+            .nav.active { transform: translateY(0); }
+
+            .mobile-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+            .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
+            .mobile-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
+            .section { padding: 60px 0; }
+            .section-title { font-size: 1.85rem; }
+            .hero { padding: 110px 0 60px; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero p { font-size: 1.05rem; }
+            .catalog-controls { padding: 20px; }
+            .catalog-filters { flex-direction: column; align-items: stretch; }
+            .sort-select { width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-buttons { flex-direction: column; }
+            .hero-buttons .btn { width: 100%; }
+            .catalog-grid { grid-template-columns: 1fr; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .product-footer { flex-direction: column; align-items: stretch; }
+            .product-footer .btn { width: 100%; }
+            .contact-info, .contact-form-wrapper { padding: 28px 20px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#home" class="logo">Anna <span>Flowers</span></a>
+
+            <nav class="nav" id="mainNav" aria-label="Основная навигация">
+                <a href="#catalog" class="nav-link">Каталог</a>
+                <a href="#reviews" class="nav-link">Отзывы</a>
+                <a href="blog.php" class="nav-link">Новости</a>
+                <a href="#about" class="nav-link">О нас</a>
+                <a href="#contact" class="nav-link">Контакты</a>
+            </nav>
+
+            <a href="tel:+79841022604" class="header-phone">+7 (984) 102-26-04</a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню" aria-expanded="false" aria-controls="mainNav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <img src="images/flowers/hero-bouquet.jpg"
+             alt="Свежие цветы в букете"
+             class="hero-image"
+             width="1600" height="1067"
+             loading="eager"
+             fetchpriority="high"
+             decoding="async">
+
+        <div class="hero-overlay"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Работаем круглосуточно в ТК Дельта</div>
+                <h1>Свежие цветы в Якутске с доставкой 24/7</h1>
+                <p>Розы от 120 ₽, букеты пионов, цветы в коробках и клубничные букеты. Поможем подобрать подарок под ваш бюджет и соберём его при вас.</p>
+
+                <div class="hero-buttons">
+                    <a href="#catalog" class="btn btn-primary">Смотреть каталог</a>
+                    <a href="https://wa.me/79841022604" class="btn btn-outline" target="_blank" rel="noopener">Написать в WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="catalog" style="background: var(--bg-light);">
+        <div class="container">
+            <h2 class="section-title">Наш ассортимент</h2>
+            <p class="section-subtitle">Выберите букет — флорист уточнит наличие, состав и стоимость под ваш бюджет.</p>
+
+            <div class="catalog-controls">
+                <div class="catalog-search">
+                    <label for="catalogSearch" class="form-label" hidden>Поиск по каталогу</label>
+                    <input type="search" id="catalogSearch" placeholder="Найти букет: розы, пионы, коробка..." autocomplete="off">
+                </div>
+
+                <div class="catalog-filters">
+                    <div class="filter-group" id="categoryFilters" role="group" aria-label="Фильтр по категории">
+                        <button class="filter-btn active" data-category="all" aria-pressed="true">Все</button>
+                        <button class="filter-btn" data-category="Розы" aria-pressed="false">Розы</button>
+                        <button class="filter-btn" data-category="Тюльпаны" aria-pressed="false">Тюльпаны</button>
+                        <button class="filter-btn" data-category="Композиции" aria-pressed="false">Композиции</button>
+                        <button class="filter-btn" data-category="Необычные" aria-pressed="false">Необычные букеты</button>
+                    </div>
+
+                    <label for="catalogSort" hidden>Сортировка товаров</label>
+                    <select class="sort-select" id="catalogSort">
+                        <option value="default">Сортировка: по умолчанию</option>
+                        <option value="price-asc">Сначала дешевле</option>
+                        <option value="price-desc">Сначала дороже</option>
+                    </select>
+                </div>
+            </div>
+
+            <p class="catalog-counter" id="catalogCounter" aria-live="polite"></p>
+
+            <div class="catalog-grid" id="catalogGrid"></div>
+        </div>
+    </section>
+
+    <section class="section" id="reviews">
+        <div class="container">
+            <h2 class="section-title">Отзывы наших клиентов</h2>
+            <p class="section-subtitle">Реальные отзывы из профиля салона в 2GIS</p>
+
+            <div class="reviews-controls" id="reviewFilters" role="group" aria-label="Фильтр отзывов по оценке">
+                <button class="filter-btn active" data-rating="all" aria-pressed="true">Все отзывы</button>
+                <button class="filter-btn" data-rating="5" aria-pressed="false">5 звёзд</button>
+            </div>
+
+            <div class="reviews-grid" id="reviewsGrid"></div>
+
+            <div class="reviews-load-more" id="reviewsLoadMore" hidden>
+                <button class="btn btn-ghost" id="loadMoreBtn">Показать ещё отзывы</button>
+            </div>
+
+            <p class="reviews-counter" id="reviewsCounter" aria-live="polite"></p>
+        </div>
+    </section>
+
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/flowers/about-shop.jpg"
+                         alt="Цветы в салоне"
+                         width="800" height="600"
+                         loading="lazy"
+                         decoding="async">
+                </div>
+
+                <div class="about-text">
+                    <h2>Салон цветов Anna в Якутске</h2>
+                    <p>Мы помогаем дарить эмоции. Поможем выбрать свежий букет, подскажем, какие цветы простоят дольше, и оформим подарок так, чтобы он запомнился.</p>
+                    <p>Наш салон в ТК Дельта работает круглосуточно — если подарок нужен срочно, мы на связи в любое время суток.</p>
+
+                    <ul class="about-features">
+                        <li>Два филиала: ул. Пояркова, 14 и ул. Петровского, 23/1</li>
+                        <li>Круглосуточный филиал в ТК Дельта</li>
+                        <li>Помощь флориста в подборе букета под бюджет</li>
+                        <li>Бережная упаковка, в том числе для дальней дороги</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Закажите букет</h2>
+            <p class="section-subtitle">Оставьте пожелания — или напишите нам напрямую в WhatsApp / позвоните</p>
+
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Наши контакты</h3>
+
+                    <div class="contact-block">
+                        <h4>Филиал 1 — круглосуточно</h4>
+                        <p>ТК Дельта, улица Пояркова, 14</p>
+                        <p>Центральный округ, Якутск, 677000</p>
+                        <a href="tel:+79841022604">+7 (984) 102-26-04</a>
+                        <a href="tel:+79246647863">+7 (924) 664-78-63</a>
+                    </div>
+
+                    <div class="contact-block">
+                        <h4>Филиал 2 — ежедневно 10:00–20:00</h4>
+                        <p>Улица Петровского, 23/1</p>
+                        <p>Октябрьский округ, Якутск, 677008</p>
+                        <a href="tel:+74112350944">+7 (4112) 35-09-44</a>
+                        <a href="tel:+79142625099">+7 (914) 262-50-99</a>
+                    </div>
+
+                    <div class="contact-block">
+                        <h4>Электронная почта</h4>
+                        <a href="mailto:anna_flowers@list.ru">anna_flowers@list.ru</a>
+                        <a href="mailto:annaantonova8688@gmail.com">annaantonova8688@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h3>Оставить заявку</h3>
+                    <p>Расскажите, какой букет хотите — мы поможем с выбором.</p>
+
+                    <!-- НОВОЕ: Блок для отображения успешной отправки заявки -->
+                    <div class="form-success" id="formSuccess" style="display:none;"></div>
+
+                    <form id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Ваше имя *</label>
+                            <input type="text" id="name" name="name" class="form-input"
+                                   placeholder="Например, Анна" required autocomplete="name"
+                                   aria-describedby="nameError">
+                            <div class="form-error" id="nameError">Пожалуйста, укажите имя (минимум 2 символа).</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Телефон *</label>
+                            <input type="tel" id="phone" name="phone" class="form-input"
+                                   placeholder="+7 (999) 999-99-99" required autocomplete="tel"
+                                   aria-describedby="phoneError">
+                            <div class="form-error" id="phoneError">Введите номер полностью: +7 (XXX) XXX-XX-XX.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Пожелания к заказу</label>
+                            <textarea id="message" name="message" class="form-textarea"
+                                      placeholder="Какие цветы, примерный бюджет, время и адрес доставки"
+                                      aria-describedby="messageHint"></textarea>
+                            <div class="form-error" id="messageHint">Необязательное поле, но так мы быстрее подберём букет.</div>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="consent" name="consent" required aria-describedby="consentError">
+                            <label for="consent" class="consent-text">
+                                Я согласен на <a href="data-processing.html" target="_blank" rel="noopener">обработку моих персональных данных</a> в соответствии с <a href="privacy.html" target="_blank" rel="noopener">политикой конфиденциальности</a> *
+                            </label>
+                        </div>
+                        <div class="form-error" id="consentError">Для отправки заявки нужно согласие на обработку персональных данных.</div>
+
+                        <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%; margin-top:16px;">
+                            Отправить заявку
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Anna Flowers</h4>
+                    <p>Салон цветов в Якутске. Филиал в ТК Дельта работает круглосуточно.</p>
+                </div>
+
+                <div>
+                    <h4>Навигация</h4>
+                    <ul class="footer-links">
+                        <li><a href="#catalog">Каталог</a></li>
+                        <li><a href="#reviews">Отзывы</a></li>
+                        <li><a href="blog.php">Новости</a></li>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Связаться с нами</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+79841022604">+7 (984) 102-26-04</a> — круглосуточно</li>
+                        <li><a href="tel:+74112350944">+7 (4112) 35-09-44</a> — 10:00–20:00</li>
+                        <li><a href="mailto:anna_flowers@list.ru">anna_flowers@list.ru</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Салон цветов Anna. Якутск.</p>
+                <p style="margin-top: 8px;">
+                    <a href="privacy.html" target="_blank" rel="noopener" style="font-size: 0.85rem;">Политика конфиденциальности</a> · 
+                    <a href="data-processing.html" target="_blank" rel="noopener" style="font-size: 0.85rem;">Обработка персональных данных</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const catalogData = [
+            {
+                id: 1,
+                category: 'Розы',
+                title: 'Роза срез (Эквадор/Голландия)',
+                description: 'Красные, белые, розовые и кремовые розы. Крупный бутон, высокая стойкость. Продажа поштучно.',
+                price: 120,
+                priceText: 'от 120 ₽ / шт',
+                badge: 'Акция',
+                image: 'images/flowers/rose-single.jpg',
+                alt: 'Красная роза крупным планом'
+            },
+            {
+                id: 2,
+                category: 'Розы',
+                title: 'Букет из 15 роз',
+                description: 'Классический монобукет из 15 роз в аккуратной упаковке.',
+                price: 2500,
+                priceText: 'от 2 500 ₽',
+                badge: 'Популярное',
+                image: 'images/flowers/rose-15.jpg',
+                alt: 'Букет из розовых роз'
+            },
+            {
+                id: 3,
+                category: 'Розы',
+                title: 'Букет из 25 роз',
+                description: 'Букет из 25 роз с праздничным оформлением. Скидка 50% на стебли.',
+                price: 4500,
+                priceText: 'от 4 500 ₽',
+                badge: 'Акция: -50%',
+                image: 'images/flowers/rose-25.jpg',
+                alt: 'Большой букет красных роз'
+            },
+            {
+                id: 4,
+                category: 'Розы',
+                title: 'Букет из 51 розы',
+                description: 'Большой букет из 51 розы для особого случая.',
+                price: 8500,
+                priceText: 'от 8 500 ₽',
+                badge: 'Премиум',
+                image: 'images/flowers/rose-51.jpg',
+                alt: 'Роскошный букет из множества роз'
+            },
+            {
+                id: 5,
+                category: 'Розы',
+                title: 'Букет из 101 розы',
+                description: 'Огромный букет из 101 розы.',
+                price: 15000,
+                priceText: 'от 15 000 ₽',
+                badge: 'Люкс',
+                image: 'images/flowers/rose-101.jpg',
+                alt: 'Огромный букет из 101 розы'
+            },
+            {
+                id: 7,
+                category: 'Тюльпаны',
+                title: 'Монобукет из 25 тюльпанов',
+                description: 'Весенний букет из 25 тюльпанов.',
+                price: 3500,
+                priceText: 'от 3 500 ₽',
+                badge: 'Весна',
+                image: 'images/flowers/tulips-25.jpg',
+                alt: 'Букет из тюльпанов'
+            },
+            {
+                id: 8,
+                category: 'Композиции',
+                title: 'Букет из пионов',
+                description: 'Пышные пионы в сезонном букете.',
+                price: 4000,
+                priceText: 'от 4 000 ₽',
+                badge: 'Сезонное',
+                image: 'images/flowers/peonies.jpg',
+                alt: 'Букет из розовых пионов'
+            },
+            {
+                id: 10,
+                category: 'Композиции',
+                title: 'Цветы в шляпной коробке',
+                description: 'Цветы в стильной коробке с флористической губкой.',
+                price: 3000,
+                priceText: 'от 3 000 ₽',
+                badge: 'Стильно',
+                image: 'images/flowers/box-flowers.jpg',
+                alt: 'Цветочная композиция в коробке'
+            },
+            {
+                id: 11,
+                category: 'Необычные',
+                title: 'Клубничный букет',
+                description: 'Съедобный подарок из свежей клубники.',
+                price: 3500,
+                priceText: 'от 3 500 ₽',
+                badge: 'Необычно',
+                image: 'images/flowers/strawberry-bouquet.jpg',
+                alt: 'Букет из клубники в шоколаде'
+            }
+        ];
+
+        const reviewsData = [
+            { id: 1, author: 'Пешеход', date: '23 сентября 2026 г.', rating: 5, text: 'Приходили ночью покупать букеты , очень хорошо встретили сделали крутой букет по хорошей цене спасибо флористу' },
+            { id: 2, author: 'Анна Бочкарева', date: '6 сентября 2026 г.', rating: 5, text: 'Приятные продавцы и свежие цветы 🌷❤️' },
+            { id: 3, author: 'Миранна Третьякова', date: '6 сентября 2026 г.', rating: 5, text: 'там круто очень👌👍' },
+            { id: 4, author: 'Андрей Колмогоров', date: '6 сентября 2026 г.', rating: 5, text: 'Хороший букет собрали флористы,спасибо' },
+            { id: 5, author: 'Алиса Слепцова', date: '6 сентября 2026 г.', rating: 5, text: 'приятные продавцы, цены шикарные ,цветы прекрасные!😊' },
+            { id: 6, author: 'Алмаас 鑽石', date: '6 сентября 2026 г.', rating: 5, text: 'хорошее обслуживание, все подсказали, показали. цветы очень красивые, спасибо большое!!' },
+            { id: 7, author: 'Алина Иванова', date: '6 сентября 2026 г.', rating: 5, text: 'всегда свежие цветы и красивые композиции, быстрая работа флористов👍' },
+            { id: 8, author: 'Valeria A', date: '6 сентября 2026 г.', rating: 5, text: 'Отличный магазин,цветы хорошие, продавцы вежливые' },
+            { id: 9, author: 'dssiio 🐈‍⬛', date: '6 сентября 2026 г.', rating: 5, text: 'Замечательный салон цветочков!! 😍 Все сотрудники добрые, отлично разбираются в цветах и подберут букетик на любой вкус!🥰' },
+            { id: 10, author: 'Артур Ефимов', date: '6 сентября 2026 г.', rating: 5, text: 'Замечательный салон, не первый раз беру тут, каждый раз удивляют 😍😍' },
+            { id: 11, author: 'Мила Дедюкина', date: '6 сентября 2026 г.', rating: 5, text: 'Хороший салон!Свежие цветы и много выбора🥰Персонал на высшем уровне❤️' },
+            { id: 12, author: 'thsqqqw', date: '6 сентября 2026 г.', rating: 5, text: 'Очень красивые цветы, всё свежее и аккуратно оформлено! Быстро собрали заказ, осталась очень довольна' },
+            { id: 13, author: 'та ню', date: '6 сентября 2026 г.', rating: 5, text: 'Очень хороший салон, всегда свежие поставки цветов. Спасибо большое за ваш труд!☺️' },
+            { id: 14, author: 'katya', date: '6 сентября 2026 г.', rating: 5, text: 'приятные цены, стильное оформление и очень доброжелательные флористы, рекомендую! 👍' },
+            { id: 15, author: 'Анна С', date: '3 сентября 2026 г.', rating: 5, text: 'Большое спасибо флористу Льву за прекрасный вкус и красивый букет!' },
+            { id: 16, author: 'Лиза Иванова', date: '2 сентября 2026 г.', rating: 5, text: 'Оличное качество цветов' },
+            { id: 17, author: 'Татьяна Колодезникова', date: '2 сентября 2026 г.', rating: 5, text: 'Отличный магазин,вежливые продавцы' },
+            { id: 18, author: 'Нария Старостина', date: '2 сентября 2026 г.', rating: 5, text: 'Очень хороший магазин цветов❤️🔥' },
+            { id: 19, author: 'Юрий Слепцов', date: '2 сентября 2026 г.', rating: 5, text: 'Отличный магазин с хорошими ценами' },
+            { id: 20, author: 'Городской житель', date: '2 сентября 2026 г.', rating: 5, text: 'Хорошие цветы,покупаю там)' },
+            { id: 21, author: 'Клиент 2GIS', date: '2026 г.', rating: 5, text: 'Рекомендую! Цветы очень красивые и цена хорошая, ассортимент широкий.' },
+            { id: 22, author: 'Клиент 2GIS', date: '2026 г.', rating: 5, text: 'Спасибо большое флористам, очень выручили Собрали очень быстро букет, на дальнюю поездку все упаковали как положено, цветы доехали благополучно' },
+            { id: 23, author: 'Клиент 2GIS', date: '2026 г.', rating: 5, text: 'Отличный магазин, удобное местоположение, очень вежливые продавцы, ассортимент цветов многообразный. Желаю успехов в ваших делах.' }
+        ];
+
+        const catalogGrid = document.getElementById('catalogGrid');
+        const catalogSearch = document.getElementById('catalogSearch');
+        const categoryFilters = document.getElementById('categoryFilters');
+        const catalogSort = document.getElementById('catalogSort');
+        const catalogCounter = document.getElementById('catalogCounter');
+
+        const flowerPlaceholderSVG = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="32" cy="20" r="8" fill="currentColor" fill-opacity="0.2"/>
+                <path d="M32 28v20M20 36c0-8 5-12 12-12s12 4 12 12"/>
+                <path d="M32 48c-4 0-8-2-8-6s4-6 8-6 8 2 8 6-4 6-8 6z" fill="currentColor" fill-opacity="0.3"/>
+                <circle cx="12" cy="12" r="3" fill="currentColor" fill-opacity="0.4"/>
+                <circle cx="52" cy="16" r="2" fill="currentColor" fill-opacity="0.4"/>
+                <circle cx="56" cy="48" r="2.5" fill="currentColor" fill-opacity="0.4"/>
+            </svg>
+        `;
+
+        function handleImageError(img, productName) {
+            console.warn(`[Anna Flowers] Не удалось загрузить изображение для: ${productName}`);
+            console.warn(`URL: ${img.src}`);
+            
+            img.hidden = true;
+            const wrapper = img.closest('.product-image-wrapper');
+            if (!wrapper) return;
+            
+            let fallback = wrapper.querySelector('.product-image-fallback');
+            if (!fallback) {
+                fallback = document.createElement('div');
+                fallback.className = 'product-image-fallback';
+                fallback.innerHTML = `
+                    ${flowerPlaceholderSVG}
+                    <strong>Фото временно недоступно</strong>
+                    <span>Уточните внешний вид букета у флориста</span>
+                `;
+                wrapper.appendChild(fallback);
+            }
+            fallback.hidden = false;
+        }
+
+        function renderCatalog(items) {
+            catalogGrid.innerHTML = '';
+            catalogCounter.textContent = `Товаров: ${items.length}`;
+
+            if (items.length === 0) {
+                catalogGrid.innerHTML = '<div class="empty-state"><h3>Ничего не найдено</h3><p>Попробуйте другое название или выберите категорию «Все».</p></div>';
+                return;
+            }
+
+            items.forEach(item => {
+                const card = document.createElement('article');
+                card.className = 'product-card';
+
+                card.innerHTML = `
+                    <div class="product-image-wrapper">
+                        <span class="product-badge">${item.badge}</span>
+                        <img src="${item.image}"
+                             alt="${item.alt || item.title}"
+                             class="product-image"
+                             width="600" height="450"
+                             loading="lazy"
+                             decoding="async">
+                        <div class="product-image-fallback" hidden>
+                            ${flowerPlaceholderSVG}
+                            <strong>Фото временно недоступно</strong>
+                            <span>Уточните внешний вид букета у флориста</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${item.category}</div>
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                        <div class="product-footer">
+                            <span class="product-price">${item.priceText}</span>
+                            <button type="button" class="btn btn-primary btn-sm"
+                                    data-order="${item.id}"
+                                    aria-label="Заказать: ${item.title}">Заказать</button>
+                        </div>
+                    </div>
+                `;
+
+                catalogGrid.appendChild(card);
+
+                const img = card.querySelector('img');
+                img.addEventListener('error', () => handleImageError(img, item.title));
+                
+                if (img.complete && (img.naturalWidth === 0 || img.naturalHeight === 0)) {
+                    handleImageError(img, item.title);
+                }
+            });
+        }
+
+        function filterAndSortCatalog() {
+            const query = catalogSearch.value.trim().toLowerCase();
+            const category = categoryFilters.querySelector('.active').dataset.category;
+            const sort = catalogSort.value;
+
+            let result = catalogData.filter(item => {
+                const matchesText = !query ||
+                    item.title.toLowerCase().includes(query) ||
+                    item.description.toLowerCase().includes(query);
+                const matchesCategory = category === 'all' || item.category === category;
+                return matchesText && matchesCategory;
+            });
+
+            if (sort === 'price-asc') result.sort((a, b) => a.price - b.price);
+            if (sort === 'price-desc') result.sort((a, b) => b.price - a.price);
+
+            renderCatalog(result);
+        }
+
+        catalogSearch.addEventListener('input', filterAndSortCatalog);
+        catalogSort.addEventListener('change', filterAndSortCatalog);
+
+        categoryFilters.addEventListener('click', event => {
+            const button = event.target.closest('.filter-btn');
+            if (!button) return;
+
+            categoryFilters.querySelectorAll('.filter-btn').forEach(btn => {
+                const isActive = btn === button;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-pressed', String(isActive));
+            });
+
+            filterAndSortCatalog();
+        });
+
+        const whatsappPhone = '79841022604';
+
+        catalogGrid.addEventListener('click', event => {
+            const button = event.target.closest('[data-order]');
+            if (!button) return;
+
+            const item = catalogData.find(product => product.id === Number(button.dataset.order));
+            if (!item) return;
+
+            const messageField = document.getElementById('message');
+            messageField.value = `Здравствуйте! Хочу заказать: ${item.title}. Уточните, пожалуйста, наличие, точную стоимость и сроки доставки.`;
+
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('name').focus({ preventScroll: true });
+        });
+
+        const reviewsGrid = document.getElementById('reviewsGrid');
+        const reviewFilters = document.getElementById('reviewFilters');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const reviewsLoadMore = document.getElementById('reviewsLoadMore');
+        const reviewsCounter = document.getElementById('reviewsCounter');
+
+        const REVIEWS_PER_PAGE = 6;
+        let currentReviewsPage = 1;
+        let filteredReviews = reviewsData;
+
+        function renderReviews(items, page = 1) {
+            reviewsGrid.innerHTML = '';
+            const visible = items.slice(0, page * REVIEWS_PER_PAGE);
+
+            visible.forEach(review => {
+                const card = document.createElement('article');
+                card.className = 'review-card';
+
+                const cardBody = document.createElement('div');
+                cardBody.innerHTML = `
+                    <div class="review-header">
+                        <div class="review-stars" role="img" aria-label="Оценка: ${review.rating} из 5">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+                        <span class="review-source">2GIS</span>
+                    </div>
+                    <p class="review-text"></p>
+                `;
+
+                cardBody.querySelector('.review-text').textContent = `«${review.text}»`;
+
+                const author = document.createElement('div');
+                author.className = 'review-author';
+
+                const avatar = document.createElement('div');
+                avatar.className = 'review-avatar';
+                avatar.setAttribute('aria-hidden', 'true');
+                avatar.textContent = review.author.charAt(0).toUpperCase();
+
+                const meta = document.createElement('div');
+                const name = document.createElement('div');
+                name.className = 'review-name';
+                name.textContent = review.author;
+
+                const date = document.createElement('div');
+                date.className = 'review-date';
+                date.textContent = review.date;
+
+                meta.append(name, date);
+                author.append(avatar, meta);
+                card.append(cardBody, author);
+                reviewsGrid.appendChild(card);
+            });
+
+            reviewsLoadMore.hidden = visible.length >= items.length;
+            reviewsCounter.textContent = `Показано ${visible.length} из ${items.length} отзывов`;
+        }
+
+        reviewFilters.addEventListener('click', event => {
+            const button = event.target.closest('.filter-btn');
+            if (!button) return;
+
+            reviewFilters.querySelectorAll('.filter-btn').forEach(btn => {
+                const isActive = btn === button;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-pressed', String(isActive));
+            });
+
+            const rating = button.dataset.rating;
+            filteredReviews = rating === 'all'
+                ? reviewsData
+                : reviewsData.filter(review => review.rating === Number(rating));
+
+            currentReviewsPage = 1;
+            renderReviews(filteredReviews, currentReviewsPage);
+        });
+
+        loadMoreBtn.addEventListener('click', () => {
+            currentReviewsPage++;
+            renderReviews(filteredReviews, currentReviewsPage);
+        });
+
+        // ============================================
+        // НОВЫЙ КОД: ОТПРАВКА ЗАЯВКИ ЧЕРЕЗ API
+        // ============================================
+        const contactForm = document.getElementById('contactForm');
+        const phoneInput = document.getElementById('phone');
+        const submitBtn = document.getElementById('submitBtn');
+        const formSuccess = document.getElementById('formSuccess');
+
+        // Маска телефона: автоматически форматирует ввод в +7 (XXX) XXX-XX-XX
+        phoneInput.addEventListener('input', () => {
+            const digits = phoneInput.value.replace(/\D/g, '');
+            let value = digits.replace(/^[78]/, '').slice(0, 10);
+
+            let formatted = '+7';
+            if (value.length > 0) formatted += ' (' + value.slice(0, 3);
+            if (value.length >= 3) formatted += ')';
+            if (value.length > 3) formatted += ' ' + value.slice(3, 6);
+            if (value.length > 6) formatted += '-' + value.slice(6, 8);
+            if (value.length > 8) formatted += '-' + value.slice(8, 10);
+
+            phoneInput.value = formatted;
+        });
+
+        // Отправка формы через fetch к api.php
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            // Скрываем предыдущие сообщения об ошибках
+            document.querySelectorAll('.form-error').forEach(el => el.style.display = 'none');
+            
+            // Получаем значения полей
+            const name = document.getElementById('name').value.trim();
+            const phone = phoneInput.value.trim();
+            const message = document.getElementById('message').value.trim();
+            const consent = document.getElementById('consent').checked;
+            
+            // Валидация на клиенте
+            let hasErrors = false;
+            
+            if (name.length < 2) {
+                document.getElementById('nameError').style.display = 'block';
+                hasErrors = true;
+            }
+            
+            if (!/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(phone)) {
+                document.getElementById('phoneError').style.display = 'block';
+                hasErrors = true;
+            }
+            
+            if (!consent) {
+                document.getElementById('consentError').style.display = 'block';
+                hasErrors = true;
+            }
+            
+            if (hasErrors) return;
+            
+            // Блокируем кнопку на время отправки
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправка...';
+            
+            try {
+                // Формируем данные для отправки
+                const formData = new FormData();
+                formData.append('name', name);
+                formData.append('phone', phone);
+                formData.append('message', message);
+                formData.append('consent', 'on');
+                
+                // Отправляем POST-запрос к api.php
+                const response = await fetch('api.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Успех — показываем сообщение и очищаем форму
+                    contactForm.reset();
+                    
+                    formSuccess.innerHTML = `
+                        <strong>✅ ${result.message}</strong>
+                        <p style="margin-top: 8px;">Номер вашей заявки: <strong>#${result.order_id}</strong></p>
+                        <p style="margin-top: 8px;">Мы перезвоним вам в течение 5 минут.</p>
+                    `;
+                    formSuccess.style.display = 'block';
+                    formSuccess.style.background = '#D1FAE5';
+                    formSuccess.style.color = '#065F46';
+                    formSuccess.style.padding = '20px';
+                    formSuccess.style.borderRadius = '8px';
+                    formSuccess.style.marginTop = '20px';
+                    
+                    // Прокручиваем к сообщению об успехе
+                    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    // Ошибка валидации с сервера
+                    alert('Ошибка: ' + (result.errors ? result.errors.join(', ') : result.message));
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Отправить заявку';
+                }
+                
+            } catch (error) {
+                // Ошибка соединения с сервером
+                console.error('Ошибка отправки:', error);
+                alert('Ошибка соединения с сервером. Попробуйте ещё раз или позвоните нам.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Отправить заявку';
+            }
+        });
+
+        // ============================================
+        // МОБИЛЬНОЕ МЕНЮ
+        // ============================================
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+
+        function closeMenu() {
+            mainNav.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            mobileMenuBtn.setAttribute('aria-label', 'Открыть меню');
+        }
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active', isOpen);
+            mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+            mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('click', event => {
+            if (!mainNav.contains(event.target) && !mobileMenuBtn.contains(event.target)) closeMenu();
+        });
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') closeMenu();
+        });
+
+        // ============================================
+        // ЭФФЕКТ ШАПКИ ПРИ ПРОКРУТКЕ
+        // ============================================
+        const header = document.querySelector('.header');
+
+        window.addEventListener('scroll', () => {
+            header.style.boxShadow = window.scrollY > 40 ? 'var(--shadow-md)' : 'var(--shadow-sm)';
+        }, { passive: true });
+
+        // ============================================
+        // ПЕРВИЧНАЯ ОТРИСОВКА
+        // ============================================
+        filterAndSortCatalog();
+        renderReviews(reviewsData, 1);
+
+        console.log('[Anna Flowers] Сайт загружен. Каталог:', catalogData.length, 'товаров');
+        console.log('[Anna Flowers] Отзывы:', reviewsData.length, 'записей');
+    </script>
+</body>
+</html>
