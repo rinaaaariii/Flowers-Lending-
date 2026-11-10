@@ -8,12 +8,11 @@
     <meta property="og:title" content="Anna — Салон цветов в Якутске | Каталог и доставка 24/7">
     <meta property="og:description" content="Свежие розы, пионы, цветы в коробках и клубничные букеты. Филиал в ТК Дельта работает круглосуточно.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="images/flowers/hero-bouquet.jpg">
+    <meta property="og:image" content="images/flowers/hero-bouquet.webp">
     <title>Anna — Салон цветов в Якутске | Свежие букеты и доставка 24/7</title>
 
-    <!-- Preload критических ресурсов -->
-    <link rel="preload" as="image" href="images/flowers/hero-bouquet.webp" type="image/webp" fetchpriority="high">
-    <link rel="preload" as="image" href="images/flowers/hero-bouquet.jpg" fetchpriority="high">
+    <!-- КРИТИЧЕСКИЕ PRELOAD (самое важное для LCP!) -->
+    <link rel="preload" as="image" href="images/flowers/hero-bouquet.webp" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap">
@@ -170,15 +169,12 @@
     </header>
 
     <section class="hero" id="home">
-        <picture>
-            <source srcset="images/flowers/hero-bouquet.webp" type="image/webp">
-            <img src="images/flowers/hero-bouquet.jpg"
-                 alt="Свежие цветы в букете"
-                 class="hero-image"
-                 width="1600" height="1067"
-                 fetchpriority="high"
-                 decoding="async">
-        </picture>
+        <img src="images/flowers/hero-bouquet.webp"
+             alt="Свежие цветы в букете"
+             class="hero-image"
+             width="1200" height="800"
+             fetchpriority="high"
+             decoding="async">
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
@@ -243,14 +239,11 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-image">
-                    <picture>
-                        <source srcset="images/flowers/about-shop.webp" type="image/webp">
-                        <img src="images/flowers/about-shop.jpg"
-                             alt="Цветы в салоне"
-                             width="800" height="600"
-                             loading="lazy"
-                             decoding="async">
-                    </picture>
+                    <img src="images/flowers/about-shop.webp"
+                         alt="Цветы в салоне"
+                         width="800" height="600"
+                         loading="lazy"
+                         decoding="async">
                 </div>
                 <div class="about-text">
                     <h2>Салон цветов Anna в Якутске</h2>
@@ -364,15 +357,15 @@
 
     <script>
         const catalogData=[
-            {id:1,category:'Розы',title:'Роза срез (Эквадор/Голландия)',description:'Красные, белые, розовые и кремовые розы. Крупный бутон, высокая стойкость. Продажа поштучно.',price:120,priceText:'от 120 ₽ / шт',badge:'Акция',image:'images/flowers/rose-single.jpg',alt:'Красная роза крупным планом'},
-            {id:2,category:'Розы',title:'Букет из 15 роз',description:'Классический монобукет из 15 роз в аккуратной упаковке.',price:2500,priceText:'от 2 500 ₽',badge:'Популярное',image:'images/flowers/rose-15.jpg',alt:'Букет из розовых роз'},
-            {id:3,category:'Розы',title:'Букет из 25 роз',description:'Букет из 25 роз с праздничным оформлением. Скидка 50% на стебли.',price:4500,priceText:'от 4 500 ₽',badge:'Акция: -50%',image:'images/flowers/rose-25.jpg',alt:'Большой букет красных роз'},
-            {id:4,category:'Розы',title:'Букет из 51 розы',description:'Большой букет из 51 розы для особого случая.',price:8500,priceText:'от 8 500 ₽',badge:'Премиум',image:'images/flowers/rose-51.jpg',alt:'Роскошный букет из множества роз'},
-            {id:5,category:'Розы',title:'Букет из 101 розы',description:'Огромный букет из 101 розы.',price:15000,priceText:'от 15 000 ₽',badge:'Люкс',image:'images/flowers/rose-101.jpg',alt:'Огромный букет из 101 розы'},
-            {id:7,category:'Тюльпаны',title:'Монобукет из 25 тюльпанов',description:'Весенний букет из 25 тюльпанов.',price:3500,priceText:'от 3 500 ₽',badge:'Весна',image:'images/flowers/tulips-25.jpg',alt:'Букет из тюльпанов'},
-            {id:8,category:'Композиции',title:'Букет из пионов',description:'Пышные пионы в сезонном букете.',price:4000,priceText:'от 4 000 ₽',badge:'Сезонное',image:'images/flowers/peonies.jpg',alt:'Букет из розовых пионов'},
-            {id:10,category:'Композиции',title:'Цветы в шляпной коробке',description:'Цветы в стильной коробке с флористической губкой.',price:3000,priceText:'от 3 000 ₽',badge:'Стильно',image:'images/flowers/box-flowers.jpg',alt:'Цветочная композиция в коробке'},
-            {id:11,category:'Необычные',title:'Клубничный букет',description:'Съедобный подарок из свежей клубники.',price:3500,priceText:'от 3 500 ₽',badge:'Необычно',image:'images/flowers/strawberry-bouquet.jpg',alt:'Букет из клубники в шоколаде'}
+            {id:1,category:'Розы',title:'Роза срез (Эквадор/Голландия)',description:'Красные, белые, розовые и кремовые розы. Крупный бутон, высокая стойкость. Продажа поштучно.',price:120,priceText:'от 120 ₽ / шт',badge:'Акция',image:'images/flowers/rose-single.webp',alt:'Красная роза крупным планом'},
+            {id:2,category:'Розы',title:'Букет из 15 роз',description:'Классический монобукет из 15 роз в аккуратной упаковке.',price:2500,priceText:'от 2 500 ₽',badge:'Популярное',image:'images/flowers/rose-15.webp',alt:'Букет из розовых роз'},
+            {id:3,category:'Розы',title:'Букет из 25 роз',description:'Букет из 25 роз с праздничным оформлением. Скидка 50% на стебли.',price:4500,priceText:'от 4 500 ₽',badge:'Акция: -50%',image:'images/flowers/rose-25.webp',alt:'Большой букет красных роз'},
+            {id:4,category:'Розы',title:'Букет из 51 розы',description:'Большой букет из 51 розы для особого случая.',price:8500,priceText:'от 8 500 ₽',badge:'Премиум',image:'images/flowers/rose-51.webp',alt:'Роскошный букет из множества роз'},
+            {id:5,category:'Розы',title:'Букет из 101 розы',description:'Огромный букет из 101 розы.',price:15000,priceText:'от 15 000 ₽',badge:'Люкс',image:'images/flowers/rose-101.webp',alt:'Огромный букет из 101 розы'},
+            {id:7,category:'Тюльпаны',title:'Монобукет из 25 тюльпанов',description:'Весенний букет из 25 тюльпанов.',price:3500,priceText:'от 3 500 ₽',badge:'Весна',image:'images/flowers/tulips-25.webp',alt:'Букет из тюльпанов'},
+            {id:8,category:'Композиции',title:'Букет из пионов',description:'Пышные пионы в сезонном букете.',price:4000,priceText:'от 4 000 ₽',badge:'Сезонное',image:'images/flowers/peonies.webp',alt:'Букет из розовых пионов'},
+            {id:10,category:'Композиции',title:'Цветы в шляпной коробке',description:'Цветы в стильной коробке с флористической губкой.',price:3000,priceText:'от 3 000 ₽',badge:'Стильно',image:'images/flowers/box-flowers.webp',alt:'Цветочная композиция в коробке'},
+            {id:11,category:'Необычные',title:'Клубничный букет',description:'Съедобный подарок из свежей клубники.',price:3500,priceText:'от 3 500 ₽',badge:'Необычно',image:'images/flowers/strawberry-bouquet.webp',alt:'Букет из клубники в шоколаде'}
         ];
 
         const reviewsData=[
@@ -435,10 +428,7 @@
                 card.innerHTML=`
                     <div class="product-image-wrapper">
                         <span class="product-badge">${item.badge}</span>
-                        <picture>
-                            <source srcset="${item.image.replace('.jpg','.webp')}" type="image/webp">
-                            <img src="${item.image}" alt="${item.alt||item.title}" class="product-image" width="600" height="450" loading="lazy" decoding="async">
-                        </picture>
+                        <img src="${item.image}" alt="${item.alt||item.title}" class="product-image" width="600" height="450" loading="lazy" decoding="async">
                         <div class="product-image-fallback" hidden>
                             <strong>Фото временно недоступно</strong>
                             <span>Уточните внешний вид букета у флориста</span>
