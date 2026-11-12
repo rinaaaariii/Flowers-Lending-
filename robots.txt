@@ -1,0 +1,29 @@
+# Robots.txt для Anna Flowers
+# Салон цветов в Якутске
+
+User-agent: *
+Allow: /
+
+# Разрешаем индексацию основных страниц
+Allow: /index.html
+Allow: /blog.php
+
+# Запрещаем индексацию админки и служебных файлов
+Disallow: /admin.php
+Disallow: /users.php
+Disallow: /login.php
+Disallow: /logout.php
+Disallow: /auth.php
+Disallow: /db.php
+Disallow: /config.php
+Disallow: /api.php
+Disallow: /data-processing.html
+Disallow: /privacy.html
+
+# Запрещаем индексацию файлов
+Disallow: /*.sql$
+Disallow: /*.db$
+Disallow: /*.sqlite$
+
+# Sitemap
+Sitemap: https://flowers-lending--arinakud.replit.app/sitemap.xml

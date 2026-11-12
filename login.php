@@ -4,7 +4,11 @@ session_start();
 
 // Если уже авторизован — перенаправляем по роли
 if (isset($_SESSION['user_id'])) {
-    header('Location: ' . ($_SESSION['user_role'] === 'editor' ? 'news.php' : 'admin.php'));
+    if ($_SESSION['user_role'] === 'editor') {
+        header('Location: news.php');
+    } else {
+        header('Location: admin.php');
+    }
     exit;
 }
 
@@ -17,17 +21,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($login) || empty($password)) {
         $error = 'Введите логин и пароль';
     } else {
+        // Ищем пользователя
         $stmt = $pdo->prepare("SELECT * FROM users WHERE login = ? AND is_active = 1");
         $stmt->execute([$login]);
         $user = $stmt->fetch();
         
+        // Проверяем пароль
         if ($user && password_verify($password, $user['password'])) {
+            // Сохраняем данные в сессию
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_login'] = $user['login'];
             $_SESSION['user_role'] = $user['role'];
             
-            $stmt = $pdo->prepare("UPDATE users SET last_login = NOW() WHERE id = ?");
-            $stmt->execute([$user['id']]);
+            // Обновляем last_login (используем PHP date() вместо SQL NOW())
+            $currentTime = date('Y-m-d H:i:s');
+            $stmt = $pdo->prepare("UPDATE users SET last_login = ? WHERE id = ?");
+            $stmt->execute([$currentTime, $user['id']]);
             
             // Перенаправляем в зависимости от роли
             if ($user['role'] === 'editor') {
